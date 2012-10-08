@@ -1,0 +1,44 @@
+<h2>Edit Profile</h2>
+<div>
+</div>
+
+<%= form_for(@profile, :url => update_profile_user_path(@user), :html => { :multipart => true }) do |f| %>
+  <div>
+    <%= render :partial => "form_error", :locals => {:@model => @profile} %>
+  </div>
+  <div>
+    <%= f.label :display_name %><br />
+    <%= f.text_field :display_name %>
+  </div><br/>
+  <div>
+    <%= f.label :about_me %><br />
+    <%= f.text_field :about_me %>
+  </div><br/>
+  <%= f.fields_for :user do |ff| %>
+  <p>
+      <%= ff.label :profession, "Profession" %><br />
+      <%= ff.text_field :profession %><br />
+    </p>
+    <p>
+      <%= ff.label :email, "Email" %><br />
+      <%= ff.text_field :email %><br />
+    </p>
+    
+    <%= ff.fields_for :social_accounts do |social_accounts| %>
+     <%= render 'social_account_fields', :f => social_accounts %>
+    <% end %>
+ <p><%= link_to_add_fields "Add Social Account", ff, :social_accounts %></p>
+  <% end %>
+
+  <div>
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+  <div style="height: 8px"></div>
+  <div>
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+      profile_user_path(@user), :class => 'btn'  %>
+    <%= f.submit "Update",:class => 'btn' %>
+  </div>
+
+<% end %>

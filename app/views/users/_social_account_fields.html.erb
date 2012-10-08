@@ -1,0 +1,23 @@
+<div class="fields">
+  <table>
+    <tr>
+      <td>
+        <%= f.label :account_name, "User Name" %>
+        <%= f.text_field :account_name %>
+      </td>
+      <td style="width: 10px"></td>
+      <td>
+        <%= f.label :account_type, "Type" %>
+        <%= f.select :account_type, SocialAccount::ACCOUNT_TYPES.collect {|key, value| [key.to_s.capitalize, value] }, {:include_blank => "-- Select Social Account --"}, {:disabled => !f.object.new_record?} %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.hidden_field :_destroy %>
+        <%= link_to_function "remove", "remove_fields(this)", :id => "remove_fields" %>
+        <p class="notice">
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>

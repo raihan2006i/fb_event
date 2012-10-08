@@ -1,0 +1,34 @@
+database: &DATABASE
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  pool: 25
+  timeout: 5000
+
+development:
+  <<: *DATABASE
+  database: fb_event_development
+  username: root
+  password: root
+
+production:
+  adapter: postgresql
+  database: ec2-184-73-162-187.compute-1.amazonaws.com
+  pool: 5
+  timeout: 5000
+  username: ptsimbxenr
+  password: -sAcp6PYnGfKndlFNLbr
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: db/recommend_staging
+  pool: 5
+  username: ptsimbxenr
+  password: -sAcp6PYnGfKndlFNLbr
+
+test:
+  <<: *DATABASE
+  database: recommend_test
+  username: root
+  password: root

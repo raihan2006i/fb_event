@@ -1,0 +1,34 @@
+<p>
+<h4><%=@profile.display_name%>'s  Profile</h4>
+</p>
+<%if (@profile != nil)%>
+  <p>
+    Name : <%=@profile.display_name%>
+  </p>
+  <% if user_signed_in? %>
+    <p>
+      Email : <%=@profile.user.email%>
+    </p>
+  <%end%>
+  <p>
+    Profession: <%=@profile.user.profession%>
+  </p>
+  <p>
+    Social Accounts: <%@profile.user.social_accounts.each do |account|  %>
+    <p style="margin-left: 100px"><%=account.account_name%>
+      <%=  get_social_icon(account.account_type, account.account_name) %><br />
+    <%end%>
+  </p>
+  </p>
+  <p>
+    About Me : <%=@profile.about_me%>
+  </p>
+  <p>
+    Profile Picture : <%= image_tag @profile.photo.url(:small) %>
+  </p>
+<%end%>
+<% if user_signed_in? && current_user == @user%>
+  <div>
+    <%=link_to  "Edit Profile",edit_profile_user_path(@profile.user_id),:class => 'btn' if (@profile != nil)  %>
+  </div><br/>
+<%end%>
