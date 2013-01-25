@@ -1,0 +1,4 @@
+<%= form_tag(post_tweet_user_path(@user), :method => :post) do  %>
+  <%= text_area_tag "tweet", nil, :placeholder => "tweet", :value => params[:tweet] %>
+  <%= submit_tag "Tweet" %>
+<%- end %>

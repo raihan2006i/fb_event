@@ -11,6 +11,7 @@ gem "omniauth-twitter", "~> 0.0.12"
 gem "omniauth-google-oauth2"
 gem "nokogiri", "~> 1.5.5"
 gem "fb_graph", "~> 2.5.2"
+gem 'twitter', :git => 'https://github.com/sferik/twitter.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

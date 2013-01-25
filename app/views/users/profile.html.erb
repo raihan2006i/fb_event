@@ -27,8 +27,4 @@
     Profile Picture : <%= image_tag @profile.photo.url(:small) %>
   </p>
 <%end%>
-<% if user_signed_in? && current_user == @user%>
-  <div>
-    <%=link_to  "Edit Profile",edit_profile_user_path(@profile.user_id),:class => 'btn' if (@profile != nil)  %>
-  </div><br/>
-<%end%>
+  

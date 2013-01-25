@@ -43,6 +43,51 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
 
+  def post_tweet(message)
+    Twitter.configure do |config|
+      config.consumer_key = OMNIAUTH_CONFIG["twitter"]["key"]
+      config.consumer_secret = OMNIAUTH_CONFIG["twitter"]["secret"]
+      config.oauth_token = twitter_account.token
+      config.oauth_token_secret = twitter_account.secret
+    end
+    client = Twitter::Client.new
+    begin
+      client.update(message)
+      return true
+    rescue Exception => e
+      self.errors.add(:oauth_token, "Unable to send to twitter: #{e.to_s}")
+      return false
+    end
+  end
+
+  def facebook_account
+    if @facebook_account.nil?
+      @facebook_account = authentications.find_by_provider("facebook")
+    end
+    @facebook_account
+  end
+
+  def twitter_account
+    if @twitter_account.nil?
+      @twitter_account = authentications.find_by_provider("twitter")
+    end
+    @twitter_account
+  end
+
+  def has_facebook?
+    if @facebook_account.nil?
+      @facebook_account = authentications.find_by_provider("facebook")
+    end
+    @facebook_account.present?
+  end
+
+  def has_twitter?
+    if @twitter_account.nil?
+      @twitter_account = authentications.find_by_provider("twitter")
+    end
+    @twitter_account.present?
+  end
+
   private
   def create_profile
     profile = self.build_profile({:display_name => name })

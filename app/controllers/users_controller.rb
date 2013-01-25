@@ -41,6 +41,14 @@ class UsersController < ApplicationController
     @profile = @user.profile
   end
 
+  def tweet
+  end
+
+  def post_tweet
+    @user.post_tweet(params[:tweet])
+    redirect_to profile_user_path(@user), :notice => "Your tweet has been posted"
+  end
+
   private
   def load_user
     @user = User.find(params[:id])

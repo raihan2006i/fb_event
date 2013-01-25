@@ -26,6 +26,8 @@ Recommend::Application.routes.draw do
       get "events"
       get "edit_profile"
       put "update_profile"
+      get "tweet"
+      post "post_tweet"
     end
   end
 
@@ -78,7 +80,7 @@ Recommend::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => redirect("/signup")
+  root :to => redirect("/signin")
 
   # See how all your routes lay out with "rake routes"
 

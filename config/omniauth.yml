@@ -1,0 +1,23 @@
+development:
+  facebook:
+    key: 113236112165664
+    secret: 90893ffc14ecdc7d911f04c1bcd23b6e
+    scope:  publish_stream,user_likes,email,offline_access,friends_photos, user_events, friends_events, create_event, rsvp_event
+  twitter:
+    key:  9qWj3XVXSOEbR0pHfJytDg
+    secret: 6ttub5tQRwc1W9oUZatJWlnn6obyXkJ89ona3YRCqg
+  google:
+    key: 114480915958.apps.googleusercontent.com
+    secret: QXZQ9sFstcf_AeDKT3weG9rF
+
+production:
+  facebook:
+    key: 113236112165664
+    secret: 90893ffc14ecdc7d911f04c1bcd23b6e
+    scope:  publish_stream,user_likes,email,offline_access,friends_photos, user_events, friends_events, create_event, rsvp_event
+  twitter:
+    key:  ict6uhaSi93y5Z3Ut5Phg
+    secret: NwxZ6t4mlhXp0FcO8cKZZ2JLpI37ACY3c8WVhpPZmM
+  google:
+    key: 146804609581.apps.googleusercontent.com
+    secret: TXX5gAQBfAXTzzxjesGHq3U0
