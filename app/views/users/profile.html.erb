@@ -11,16 +11,6 @@
     </p>
   <%end%>
   <p>
-    Profession: <%=@profile.user.profession%>
-  </p>
-  <p>
-    Social Accounts: <%@profile.user.social_accounts.each do |account|  %>
-    <p style="margin-left: 100px"><%=account.account_name%>
-      <%=  get_social_icon(account.account_type, account.account_name) %><br />
-    <%end%>
-  </p>
-  </p>
-  <p>
     About Me : <%=@profile.about_me%>
   </p>
   <p>

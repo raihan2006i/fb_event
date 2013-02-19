@@ -16,6 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     k = params[:user].delete(:k)
     build_resource
+    resource.confirmed_at = DateTime.now
     if resource.save
       if(k)
         recommendation = Recommendation.find_by_signup_key(k)

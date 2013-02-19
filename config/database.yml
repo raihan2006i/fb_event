@@ -13,12 +13,12 @@ development:
 
 production:
   adapter: postgresql
-  host: ec2-54-243-252-23.compute-1.amazonaws.com		
-  database: d3blqnl3k96i56
+  host: ec2-107-21-126-45.compute-1.amazonaws.com
+  database: d8qaub5ibrvf80
   pool: 5
   timeout: 5000
-  username: zhzgvufpcfcfut
-  password: slD5-i95uKzqRRHL8dKsdCmwhI
+  username: yavuhdjrtkjufq
+  password: ibLbquqgV3pTQoKsE1i5oSxzl8
 
 staging:
   adapter: postgresql

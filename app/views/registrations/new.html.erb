@@ -1,6 +1,68 @@
 <div class="page-header">
-  <h1><%=t '.title', :default => "Sign Up with Facebook" %></h1>
+  <h1><%=t '.title', :default => "Sign Up" %></h1>
 </div>
-<a href="/auth/facebook">
-  <%= image_tag "facebook_32.png", :size => "32x32", :alt => "Facebook" %>
-</a>
+
+<%= form_for(setup_user(resource), :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :username, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :username, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Sign Up', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      users_path, :class => 'btn' %>
+  </div>
+
+<% end %>
+<div class="well auth_provider">
+  <p><strong>Sign up through one of these services:</strong></p>
+  <a href="/auth/twitter">
+    <%= image_tag "twitter_32.png", :size => "32x32", :alt => "Twitter" %>
+  </a>
+  <a href="/auth/facebook">
+    <%= image_tag "facebook_32.png", :size => "32x32", :alt => "Facebook" %>
+  </a>
+  <a href="/auth/google_oauth2">
+    <%= image_tag "google_32.png", :size => "32x32", :alt => "Google" %>
+  </a>
+</div>
